@@ -1,0 +1,42 @@
+{
+  "name": "redis-helper",
+  "version": "0.1.0",
+  "description": "Redis Helper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatagonianTech/redis-helper.git"
+  },
+  "keywords": [
+    "redis",
+    "patagonian",
+    "patagoniansys",
+    "patagoniantech",
+    "helper",
+    "tool",
+    "cache"
+  ],
+  "author": "Patagonian",
+  "license": "ISC",
+  "contributors": [
+    {
+      "name": "Eduardo Cuomo",
+      "email": "reduardo7@gmail.com",
+      "url": "https://about.me/eduardo.cuomo.ar"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/PatagonianTech/redis-helper/issues"
+  },
+  "homepage": "https://github.com/PatagonianTech/redis-helper#readme",
+  "dependencies": {
+    "ioredis": "^4.17.1",
+    "typescript": "^3.9.3"
+  },
+  "devDependencies": {
+    "@types/ioredis": "^4.16.2"
+  }
+}
