@@ -1,6 +1,6 @@
-import Redis from 'ioredis'
-import { TParamMayFilter, TRedisHelperOptions, TRedisKeyValue } from './types'
-import { RedisError } from './RedisError'
+import Redis from 'ioredis';
+import { TRedisHelperOptions, TRedisKeyValue } from './types';
+import { RedisError } from './RedisError';
 
 /**
  * Default Redis expire unit (in seconds).
@@ -8,12 +8,12 @@ import { RedisError } from './RedisError'
  * EX seconds -- Set the specified expire time, in seconds.
  * PX milliseconds -- Set the specified expire time, in milliseconds.
  */
-const REDIS_EXPIRE_UNIT = 'EX'
+const REDIS_EXPIRE_UNIT = 'EX';
 
 export default class RedisHelper {
-  _prefix: string
-  _expire: number
-  _redisInstance: Redis.Redis
+  private _prefix: string;
+  private _expire: number;
+  private _redisInstance: Redis.Redis;
 
   /**
    * RedisHelper instance.
@@ -26,9 +26,9 @@ export default class RedisHelper {
     expire: number = 60 * 60 * 24,
     redisInstance: Redis.Redis
   ) {
-    this._prefix = prefix
-    this._expire = expire
-    this._redisInstance = redisInstance
+    this._prefix = prefix ? `${prefix}:` : '';
+    this._expire = expire;
+    this._redisInstance = redisInstance;
   }
 
   /**
@@ -38,7 +38,7 @@ export default class RedisHelper {
    * @return Redis Key
    */
   key(k: string) {
-    return `${this._prefix}:${k}`
+    return `${this._prefix}${k}`;
   }
 
   /**
@@ -52,7 +52,7 @@ export default class RedisHelper {
   set<T = any>(
     key: string,
     value: T,
-    options: TRedisHelperOptions
+    options?: TRedisHelperOptions
   ): Promise<T> {
     return new Promise((resolve, reject) => {
       try {
@@ -61,10 +61,10 @@ export default class RedisHelper {
             expire: this._expire,
           },
           options
-        )
+        );
 
         // Parse any type of data to string to will save in Redis
-        let v = JSON.stringify(value)
+        let v = JSON.stringify(value);
 
         this._redisInstance.set(
           this.key(key),
@@ -73,18 +73,18 @@ export default class RedisHelper {
           o.expire,
           (error) => {
             if (error) {
-              console.error('RedisHelper.set error', key, v, value, error)
-              reject(new RedisError(RedisError.Codes.Redis, error))
+              console.error('RedisHelper.set error', key, v, value, error);
+              reject(new RedisError(RedisError.Codes.Redis, error));
             } else {
-              resolve(value)
+              resolve(value);
             }
           }
-        )
+        );
       } catch (error) {
-        console.error('.set general error', key, error)
-        reject(new RedisError(RedisError.Codes.Unexpected, error))
+        console.error('.set general error', key, error);
+        reject(new RedisError(RedisError.Codes.Unexpected, error));
       }
-    })
+    });
   }
 
   /**
@@ -98,27 +98,27 @@ export default class RedisHelper {
     return new Promise((resolve, reject) => {
       try {
         if (useKeyPrefix) {
-          key = this.key(key)
+          key = this.key(key);
         }
 
         this._redisInstance.get(key, (error, res) => {
           if (error) {
-            console.error('.get error', key, error)
-            reject(new RedisError(RedisError.Codes.Redis, error))
+            console.error('.get error', key, error);
+            reject(new RedisError(RedisError.Codes.Redis, error));
           } else {
             if (res === null) {
-              resolve(res)
+              resolve(res);
             } else {
-              const result = JSON.parse(res)
-              resolve(result)
+              const result = JSON.parse(res);
+              resolve(result);
             }
           }
-        })
+        });
       } catch (error) {
-        console.error('.get general error', key, error)
-        reject(new RedisError(RedisError.Codes.Unexpected, error))
+        console.error('.get general error', key, error);
+        reject(new RedisError(RedisError.Codes.Unexpected, error));
       }
-    })
+    });
   }
 
   /**
@@ -132,15 +132,15 @@ export default class RedisHelper {
   async tryGet<T = any>(
     key: string,
     value: T,
-    options: TRedisHelperOptions
+    options?: TRedisHelperOptions
   ): Promise<T> {
-    let v = await this.get<T>(key)
+    let v = await this.get<T>(key);
 
     if (v === null || v === undefined) {
-      v = await this.set<T>(key, value, options)
+      v = await this.set<T>(key, value, options);
     }
 
-    return v
+    return v;
   }
 
   /**
@@ -149,25 +149,26 @@ export default class RedisHelper {
    * @param key Key
    * @param useKeyPrefix
    */
-  del(key: string, useKeyPrefix: boolean = true): Promise<void> {
+  del(key: string, useKeyPrefix: boolean = true): Promise<number> {
     return new Promise((resolve, reject) => {
       try {
-        this._redisInstance.del(this.key(key), (error) => {
-          if (useKeyPrefix) {
-            key = this.key(key)
-          }
+        if (useKeyPrefix) {
+          key = this.key(key);
+        }
+
+        this._redisInstance.del(key, (error, res) => {
           if (error) {
-            console.error('._del', key, error)
-            reject(new RedisError(RedisError.Codes.Redis, error))
+            console.error('._del', key, error);
+            reject(new RedisError(RedisError.Codes.Redis, error));
           } else {
-            resolve()
+            resolve(res);
           }
-        })
+        });
       } catch (error) {
-        console.error('._del general error', key, error)
-        reject(new RedisError(RedisError.Codes.Unexpected, error))
+        console.error('._del general error', key, error);
+        reject(new RedisError(RedisError.Codes.Unexpected, error));
       }
-    })
+    });
   }
 
   /**
@@ -182,22 +183,22 @@ export default class RedisHelper {
     return new Promise((resolve, reject) => {
       try {
         if (!expire) {
-          expire = this._expire
+          expire = this._expire;
         }
 
         this._redisInstance.expire(key, expire, (error, res) => {
           if (error) {
-            console.error('.expire error', key, expire, error)
-            reject(new RedisError(RedisError.Codes.Redis, error))
+            console.error('.expire error', key, expire, error);
+            reject(new RedisError(RedisError.Codes.Redis, error));
           } else {
-            resolve(res)
+            resolve(res);
           }
-        })
+        });
       } catch (error) {
-        console.error('.expire general error', key, expire, error)
-        reject(new RedisError(RedisError.Codes.Unexpected, error))
+        console.error('.expire general error', key, expire, error);
+        reject(new RedisError(RedisError.Codes.Unexpected, error));
       }
-    })
+    });
   }
 
   /**
@@ -212,106 +213,115 @@ export default class RedisHelper {
       try {
         this._redisInstance.incr(this.key(key), (error, res) => {
           if (error) {
-            console.error('.incr error', key, error)
-            reject(new RedisError(RedisError.Codes.Redis, error))
+            console.error('.incr error', key, error);
+            reject(new RedisError(RedisError.Codes.Redis, error));
           } else {
-            resolve(res)
+            resolve(res);
           }
-        })
+        });
       } catch (error) {
-        console.error('.incr general error', key, error)
-        reject(new RedisError(RedisError.Codes.Unexpected, error))
+        console.error('.incr general error', key, error);
+        reject(new RedisError(RedisError.Codes.Unexpected, error));
       }
-    })
+    });
   }
 
   /**
    * Get redis records by key pattern and/or value pattern.
    *
    * @param keyPattern Key pattern (Wildcard)
-   * @param valueFilter Value filter function
+   * @param filter Value filter function
    * @param useKeyPrefix
    * @return Results
    * @see http://athlan.pl/redis-delete-keys-prefix-nodejs
    */
   find<T = any>({
     keyPattern = '*',
-    valueFilter = (key: string, value: T) => true,
+    filter = (key: string, value: T) => true,
     useKeyPrefix = true,
-  }: TParamMayFilter<T>): Promise<TRedisKeyValue<T>[]> {
+  }): Promise<TRedisKeyValue<T>[]> {
     return new Promise((resolve, reject) => {
       try {
         if (useKeyPrefix) {
-          keyPattern = this.key(keyPattern)
+          keyPattern = this.key(keyPattern);
         }
 
-        this._redisInstance.keys(keyPattern, async (error, rowsKeys) => {
+        this._redisInstance.keys(keyPattern, (error, rowsKeys) => {
           if (error) {
-            console.error('.findByKey keys error', error)
-            reject(new RedisError(RedisError.Codes.Redis, error))
+            console.error('.findByKey keys error', error);
+            reject(new RedisError(RedisError.Codes.Redis, error));
           } else {
-            const results: TRedisKeyValue<T>[] = []
+            (async () => {
+              const results: TRedisKeyValue<T>[] = [];
 
-            for (const key of rowsKeys) {
-              const value = await this.get(key, false)
+              for (const key of rowsKeys) {
+                const value = await this.get(key, false);
 
-              if (valueFilter(key, value)) {
-                results.push({ key, value })
+                if (filter(key, value)) {
+                  results.push({ key, value });
+                }
               }
-            }
 
-            resolve(results)
+              return results;
+            })()
+              .then(resolve)
+              .catch(reject);
           }
-        })
+        });
       } catch (error) {
-        console.error('.findByKey error', error)
-        reject(new RedisError(RedisError.Codes.Unexpected, error))
+        console.error('.findByKey error', error);
+        reject(new RedisError(RedisError.Codes.Unexpected, error));
       }
-    })
+    });
   }
 
   /**
    * Delete Redis records by key pattern and/or value pattern.
    *
    * @param keyPattern Key pattern (Wildcard)
-   * @param valueFilter Value filter function
+   * @param filter Value filter function
    * @param useKeyPrefix
    * @return Delete count
    */
-  async delMany<T = any>({
+  delMany<T = any>({
     keyPattern = '*',
-    valueFilter = (key: string, value: T) => true,
+    filter = (key: string, value: T) => true,
     useKeyPrefix = true,
-  }: TParamMayFilter<T>): Promise<number> {
+  }): Promise<number> {
     return new Promise((resolve, reject) => {
       try {
         if (useKeyPrefix) {
-          keyPattern = this.key(keyPattern)
+          keyPattern = this.key(keyPattern);
         }
 
         this._redisInstance.keys(keyPattern, async (error, rowsKeys) => {
           if (error) {
-            console.error('.delMany keys error', error)
-            reject(new RedisError(RedisError.Codes.Redis, error))
+            console.error('.delMany keys error', error);
+            reject(new RedisError(RedisError.Codes.Redis, error));
           } else {
-            let result = 0
+            (async () => {
+              let result = 0;
 
-            for (const key of rowsKeys) {
-              const value = await this.get(key, false)
+              for (const key of rowsKeys) {
+                const value = await this.get(key, false);
 
-              if (valueFilter(key, value)) {
-                await this.del(key, false)
-                result++
+                if (filter(key, value)) {
+                  await this.del(key, false);
+                  console.warn('DELETED', key);
+                  result++;
+                }
               }
-            }
 
-            resolve(result)
+              return result;
+            })()
+              .then(resolve)
+              .catch(reject);
           }
-        })
+        });
       } catch (error) {
-        console.error('.delMany error', error)
-        reject(new RedisError(RedisError.Codes.Unexpected, error))
+        console.error('.delMany error', error);
+        reject(new RedisError(RedisError.Codes.Unexpected, error));
       }
-    })
+    });
   }
 }

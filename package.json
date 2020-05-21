@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -p ."
+    "build": "tsc -p .",
+    "test:single": "npm run build && node dist/example/single.js",
+    "test:cluster": "npm run build && node dist/example/cluster.js"
   },
   "repository": {
     "type": "git",
@@ -39,6 +41,7 @@
   },
   "devDependencies": {
     "@types/ioredis": "^4.16.2",
-    "ts-node": "^8.10.1"
+    "ts-node": "^8.10.1",
+    "tslint": "^6.1.2"
   }
 }

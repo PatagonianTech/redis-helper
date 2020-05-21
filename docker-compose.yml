@@ -1,0 +1,64 @@
+version: "3.7"
+
+x-node: &x-node
+  image: patagoniantech/redis-helper:local
+  volumes:
+    - ./src:/app/src
+  build:
+    context: .
+
+services:
+  # Single Redis instance (comment this block to enable Redis Sentinel)
+
+  test-single:
+    <<: *x-node
+    command: 'npm run test:single'
+    depends_on:
+      - redis-single
+
+  redis-single:
+    image: redis:5.0.5-alpine
+
+  # Redis Sentinel
+
+  test-cluster:
+    <<: *x-node
+    command: 'npm run test:cluster'
+    depends_on:
+      - redis-cluster
+
+  redis-cluster:
+    image: patagoniansys/redis-cluster-sentinel:5.0.5-alpine
+    environment:
+      SENTINEL_PORT: 26379
+      SENTINEL_QUORUM: 2
+      SENTINEL_DOWN_AFTER: 100
+      SENTINEL_FAILOVER: 100
+      SENTINEL_MASTER_KEY: mymaster
+      REDIS_MASTER_NODE: redis-master
+    depends_on:
+      - redis-master
+      - redis-slave
+      - redis-cluster-2
+
+  redis-cluster-2:
+    image: patagoniansys/redis-cluster-sentinel:4.0
+    environment:
+      SENTINEL_PORT: 26379
+      SENTINEL_QUORUM: 2
+      SENTINEL_DOWN_AFTER: 100
+      SENTINEL_FAILOVER: 100
+      SENTINEL_MASTER_KEY: mymaster
+      REDIS_MASTER_NODE: redis-master
+    depends_on:
+      - redis-master
+      - redis-slave
+
+  redis-master:
+    image: redis:5.0.5-alpine
+
+  redis-slave:
+    image: redis:5.0.5-alpine
+    command: redis-server --slaveof redis-master 6379
+    links:
+      - redis-master

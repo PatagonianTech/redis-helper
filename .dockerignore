@@ -1,5 +1,5 @@
-.vscode
-dist
-build
-node_modules
 .history
+.vscode
+node_modules
+.git*
+dist

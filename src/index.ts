@@ -1,6 +1,3 @@
-import RedisHelperInstance, {
-  TRedisHelperConstructor,
-} from './RedisHelperInstance'
+import RedisHelperConnection from './RedisHelperConnection';
 
-export default (options: TRedisHelperConstructor) =>
-  new RedisHelperInstance(options)
+export default RedisHelperConnection;
