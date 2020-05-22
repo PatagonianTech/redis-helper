@@ -323,4 +323,13 @@ export default class RedisHelper {
       }
     });
   }
+
+  /**
+   * Delete all RedisHelper instance Redis records.
+   *
+   * @return Delete count
+   */
+  async clean() {
+    return await this.delMany({ keyPattern: '*' });
+  }
 }

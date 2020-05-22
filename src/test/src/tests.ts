@@ -115,6 +115,16 @@ export default (connection: RedisHelperConnection) => {
     assert.strictEqual(ba.length, 0);
   });
 
+  it('clean', async () => {
+    await redisHelper.set('xx', 1);
+
+    const c = await redisHelper.clean();
+    assert.equal(c > 0, true);
+
+    const x = await redisHelper.get('xx');
+    assert.equal(x, null);
+  });
+
   it('close', async () => {
     await connection.close();
   });
