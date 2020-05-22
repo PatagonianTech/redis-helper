@@ -12,7 +12,10 @@ services:
 
   test-single:
     <<: *x-node
-    command: 'npm run test:single'
+    command: "npm run test:single"
+    environment:
+      REDIS_HOST: "redis-single"
+      REDIS_PORT: 6379
     depends_on:
       - redis-single
 
@@ -23,7 +26,11 @@ services:
 
   test-cluster:
     <<: *x-node
-    command: 'npm run test:cluster'
+    command: "npm run test:cluster"
+    environment:
+      REDIS_HOST: "redis-cluster"
+      REDIS_PORT: 26379
+      REDIS_MASTER: "mymaster"
     depends_on:
       - redis-cluster
 

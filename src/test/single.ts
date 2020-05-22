@@ -1,8 +1,8 @@
-import RedisHelperConnection from '../';
-import tests from './tests';
+import RedisHelperConnection from '..';
+import tests from './src/tests';
 
-const REDIS_HOST = 'redis-single';
-const REDIS_PORT = 6379;
+const REDIS_HOST = process.env.REDIS_HOST || 'redis-single';
+const REDIS_PORT = Number(process.env.REDIS_PORT) || 6379;
 
 (async () => {
   console.info('Test single Redis instance connection');

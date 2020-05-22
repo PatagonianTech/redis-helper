@@ -1,5 +1,5 @@
 import assert from 'assert';
-import RedisHelperConnection from '..';
+import RedisHelperConnection from '../..';
 
 const wait = (t: number) =>
   new Promise((resolve) => setTimeout(resolve, t * 1000));

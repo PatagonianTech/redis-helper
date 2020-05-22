@@ -1,9 +1,9 @@
-import RedisHelperConnection from '../';
-import tests from './tests';
+import RedisHelperConnection from '..';
+import tests from './src/tests';
 
-const REDIS_HOST = 'redis-cluster';
-const REDIS_PORT = 26379;
-const REDIS_MASTER = 'mymaster';
+const REDIS_HOST = process.env.REDIS_HOST || 'redis-cluster';
+const REDIS_PORT = Number(process.env.REDIS_PORT) || 26379;
+const REDIS_MASTER = process.env.REDIS_MASTER || 'mymaster';
 
 (async () => {
   console.info('Test Cluster Redis instance connection');
