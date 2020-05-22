@@ -4,10 +4,10 @@
   "description": "Redis Helper",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -p .",
-    "test:single": "npm run build && node dist/example/single.js",
-    "test:cluster": "npm run build && node dist/example/cluster.js"
+    "test": "set -ex ; docker-compose run --rm test-single && docker-compose run --rm test-cluster",
+    "test:single": "npm run build && mocha dist/test/single.js",
+    "test:cluster": "npm run build && mocha dist/test/cluster.js",
+    "build": "tsc -p ."
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,9 @@
   },
   "devDependencies": {
     "@types/ioredis": "^4.16.2",
+    "@types/jest": "^25.2.3",
+    "@types/mocha": "^7.0.2",
+    "mocha": "^7.1.2",
     "ts-node": "^8.10.1",
     "tslint": "^6.1.2"
   }

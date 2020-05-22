@@ -5,9 +5,7 @@ const REDIS_HOST = process.env.REDIS_HOST || 'redis-cluster';
 const REDIS_PORT = Number(process.env.REDIS_PORT) || 26379;
 const REDIS_MASTER = process.env.REDIS_MASTER || 'mymaster';
 
-(async () => {
-  console.info('Test Cluster Redis instance connection');
-
+describe('Redis Cluster', () => {
   const connection = new RedisHelperConnection({
     config: {
       sentinels: [
@@ -20,7 +18,5 @@ const REDIS_MASTER = process.env.REDIS_MASTER || 'mymaster';
     },
   });
 
-  await tests(connection);
-})()
-  .then(() => process.exit(0))
-  .catch(() => process.exit(1));
+  tests(connection);
+});

@@ -307,7 +307,6 @@ export default class RedisHelper {
 
                 if (filter(key, value)) {
                   await this.del(key, false);
-                  console.warn('DELETED', key);
                   result++;
                 }
               }

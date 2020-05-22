@@ -4,6 +4,7 @@ x-node: &x-node
   image: patagoniantech/redis-helper:local
   volumes:
     - ./src:/app/src
+    - ./package.json:/app/package.json
   build:
     context: .
 

@@ -4,9 +4,7 @@ import tests from './src/tests';
 const REDIS_HOST = process.env.REDIS_HOST || 'redis-single';
 const REDIS_PORT = Number(process.env.REDIS_PORT) || 6379;
 
-(async () => {
-  console.info('Test single Redis instance connection');
-
+describe('Redis Single', () => {
   const connection = new RedisHelperConnection({
     config: {
       host: REDIS_HOST,
@@ -14,7 +12,5 @@ const REDIS_PORT = Number(process.env.REDIS_PORT) || 6379;
     },
   });
 
-  await tests(connection);
-})()
-  .then(() => process.exit(0))
-  .catch(() => process.exit(1));
+  tests(connection);
+});
