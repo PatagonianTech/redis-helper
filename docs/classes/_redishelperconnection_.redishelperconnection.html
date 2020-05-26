@@ -118,7 +118,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/9f1c128/src/RedisHelperConnection.ts#L14">src/RedisHelperConnection.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelperConnection.ts#L32">src/RedisHelperConnection.ts:32</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -141,7 +141,7 @@
 												<li class="tsd-description">
 													<aside class="tsd-sources">
 														<ul>
-															<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/9f1c128/src/RedisHelperConnection.ts#L19">src/RedisHelperConnection.ts:19</a></li>
+															<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelperConnection.ts#L37">src/RedisHelperConnection.ts:37</a></li>
 														</ul>
 													</aside>
 													<h4 class="tsd-parameters-title">Parameters</h4>
@@ -170,7 +170,7 @@
 					<div class="tsd-signature tsd-kind-icon">_config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Redis.RedisOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/9f1c128/src/RedisHelperConnection.ts#L13">src/RedisHelperConnection.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelperConnection.ts#L31">src/RedisHelperConnection.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -180,7 +180,7 @@
 					<div class="tsd-signature tsd-kind-icon">_on<wbr>Error<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_.html#tonerrorhandler" class="tsd-signature-type">TOnErrorHandler</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/9f1c128/src/RedisHelperConnection.ts#L14">src/RedisHelperConnection.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelperConnection.ts#L32">src/RedisHelperConnection.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -190,7 +190,7 @@
 					<div class="tsd-signature tsd-kind-icon">_redis<wbr>Instance<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Redis.Redis</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> = null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/9f1c128/src/RedisHelperConnection.ts#L12">src/RedisHelperConnection.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelperConnection.ts#L30">src/RedisHelperConnection.ts:30</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -207,7 +207,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/9f1c128/src/RedisHelperConnection.ts#L46">src/RedisHelperConnection.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelperConnection.ts#L67">src/RedisHelperConnection.ts:67</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -229,16 +229,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/9f1c128/src/RedisHelperConnection.ts#L68">src/RedisHelperConnection.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelperConnection.ts#L95">src/RedisHelperConnection.ts:95</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a RedisHelper instance.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> prefix: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;&quot;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Prefix</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> expire: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 60 * 60 * 24</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Expire time in seconds</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_redishelper_.redishelper.html" class="tsd-signature-type">RedisHelper</a></h4>
@@ -255,9 +266,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/9f1c128/src/RedisHelperConnection.ts#L30">src/RedisHelperConnection.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelperConnection.ts#L51">src/RedisHelperConnection.ts:51</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get Redis instance.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Redis.Redis</span></h4>
 						</li>
 					</ul>

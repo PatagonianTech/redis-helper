@@ -2,9 +2,27 @@ import Redis from 'ioredis';
 import RedisHelper from './RedisHelper';
 import { TOnErrorHandler } from './types';
 
+/**
+ * RedisHelper constructor object.
+ */
 export type TRedisHelperConstructor = {
+  /**
+   * Redis configuration to connect using `ioredis`.
+   *
+   * If used, `redisInstance` is not required.
+   */
   config?: Redis.RedisOptions | null;
+
+  /**
+   * Custom Redis instance.
+   *
+   * If used, `config` is not required.
+   */
   redisInstance?: Redis.Redis | null;
+
+  /**
+   * On error handler.
+   */
   onError?: TOnErrorHandler;
 };
 
@@ -27,6 +45,9 @@ export default class RedisHelperConnection {
     this._onError = onError;
   }
 
+  /**
+   * Get Redis instance.
+   */
   getInstance(): Redis.Redis {
     if (!this._redisInstance) {
       if (!this._config) {
@@ -65,6 +86,12 @@ export default class RedisHelperConnection {
     }
   }
 
+  /**
+   * Create a RedisHelper instance.
+   *
+   * @param prefix Prefix
+   * @param expire Expire time in seconds
+   */
   create(prefix: string = '', expire: number = 60 * 60 * 24): RedisHelper {
     const instance = this.getInstance();
     return new RedisHelper(prefix, expire, instance);

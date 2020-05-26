@@ -10,6 +10,9 @@ import { RedisError } from './RedisError';
  */
 const REDIS_EXPIRE_UNIT = 'EX';
 
+/**
+ * RedisHelper.
+ */
 export default class RedisHelper {
   private _prefix: string;
   private _expire: number;

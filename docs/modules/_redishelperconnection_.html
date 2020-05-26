@@ -93,20 +93,42 @@
 					<div class="tsd-signature tsd-kind-icon">TRedis<wbr>Helper<wbr>Constructor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Redis.RedisOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">; </span>onError<span class="tsd-signature-symbol">?: </span><a href="_types_.html#tonerrorhandler" class="tsd-signature-type">TOnErrorHandler</a><span class="tsd-signature-symbol">; </span>redisInstance<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Redis.Redis</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/9f1c128/src/RedisHelperConnection.ts#L5">src/RedisHelperConnection.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelperConnection.ts#L8">src/RedisHelperConnection.ts:8</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>RedisHelper constructor object.</p>
+						</div>
+					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter">
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Redis.RedisOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Redis configuration to connect using <code>ioredis</code>.</p>
+									</div>
+									<p>If used, <code>redisInstance</code> is not required.</p>
+								</div>
 							</li>
 							<li class="tsd-parameter">
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> on<wbr>Error<span class="tsd-signature-symbol">?: </span><a href="_types_.html#tonerrorhandler" class="tsd-signature-type">TOnErrorHandler</a></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>On error handler.</p>
+									</div>
+								</div>
 							</li>
 							<li class="tsd-parameter">
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> redis<wbr>Instance<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Redis.Redis</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Custom Redis instance.</p>
+									</div>
+									<p>If used, <code>config</code> is not required.</p>
+								</div>
 							</li>
 						</ul>
 					</div>
