@@ -1,5 +1,5 @@
 {
-  "name": "redis-helper",
+  "name": "@patagoniantech/redis-helper",
   "version": "0.1.0",
   "description": "Redis Helper",
   "main": "dist/index.js",
@@ -8,7 +8,8 @@
     "test:single": "npm run build && mocha dist/test/single.js",
     "test:cluster": "npm run build && mocha dist/test/cluster.js",
     "clean": "[ ! -d dist ] || rm -rfv dist",
-    "build": "npm run clean && tsc -p ."
+    "build": "npm run clean && tsc -p .",
+    "publish": "npm test && npm publish"
   },
   "repository": {
     "type": "git",
@@ -26,11 +27,7 @@
   "author": "Patagonian",
   "license": "ISC",
   "contributors": [
-    {
-      "name": "Eduardo Cuomo",
-      "email": "reduardo7@gmail.com",
-      "url": "https://about.me/eduardo.cuomo.ar"
-    }
+    "Eduardo Cuomo <reduardo7@gmail.com> (https://about.me/eduardo.cuomo.ar)"
   ],
   "bugs": {
     "url": "https://github.com/PatagonianTech/redis-helper/issues"
