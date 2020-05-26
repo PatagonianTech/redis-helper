@@ -35,4 +35,4 @@ await connection.close();
 
 ## Doc
 
-See [docs/index.html](https://htmlpreview.github.io/?https://github.com/PatagonianTech/redis-helper/blob/master/docs/index.html).
+See [docs/index.html](https://htmlpreview.github.io/?https://github.com/PatagonianTech/redis-helper/blob/master/docs/globals.html).
