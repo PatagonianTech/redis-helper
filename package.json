@@ -9,7 +9,8 @@
     "test:cluster": "npm run build && mocha dist/test/cluster.js",
     "clean": "[ ! -d dist ] || rm -rfv dist",
     "build": "npm run clean && tsc -p .",
-    "publish": "npm test && npm publish"
+    "publish": "npm test && npm publish",
+    "generate-doc": "typedoc"
   },
   "repository": {
     "type": "git",
@@ -43,6 +44,7 @@
     "@types/mocha": "^7.0.2",
     "mocha": "^7.1.2",
     "ts-node": "^8.10.1",
-    "tslint": "^6.1.2"
+    "tslint": "^6.1.2",
+    "typedoc": "^0.17.7"
   }
 }
