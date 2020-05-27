@@ -1,6 +1,6 @@
 import Redis from 'ioredis';
 import { TRedisHelperOptions, TRedisKeyValue } from './types';
-import { RedisError } from './RedisError';
+import { RedisError } from './redis-error';
 
 /**
  * Default Redis expire unit (in seconds).

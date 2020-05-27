@@ -1,5 +1,5 @@
 import Redis from 'ioredis';
-import RedisHelper from './RedisHelper';
+import RedisHelper from './redis-helper';
 import { TOnErrorHandler } from './types';
 
 /**

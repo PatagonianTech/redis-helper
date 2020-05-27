@@ -1,6 +1,6 @@
 import assert from 'assert';
 import RedisHelperConnection from '../..';
-import RedisHelper from '../../RedisHelper';
+import RedisHelper from '../../redis-helper';
 
 const wait = (test: any, t: number) => {
   const to = t * 1000;
