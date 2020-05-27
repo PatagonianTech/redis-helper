@@ -1,15 +1,15 @@
 {
   "name": "@patagoniantech/redis-helper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Redis Helper",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "set -ex ; docker-compose run --rm test-single && docker-compose run --rm test-cluster",
     "test:single": "npm run build && mocha dist/test/single.js",
     "test:cluster": "npm run build && mocha dist/test/cluster.js",
     "clean": "[ ! -d dist ] || rm -rfv dist",
     "build": "npm run clean && tsc -p .",
-    "publish": "npm test && npm publish",
+    "publish": "set -ex ; npm test && cd dist && cp -vf ../package.json . && cp -vf ../package-lock.json . && cp -vf ../LICENSE . && npm publish",
     "generate-doc": "typedoc"
   },
   "repository": {
