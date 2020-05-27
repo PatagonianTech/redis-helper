@@ -9,7 +9,7 @@
     "test:cluster": "npm run build && mocha dist/test/cluster.js",
     "clean": "[ ! -d dist ] || rm -rfv dist",
     "build": "npm run clean && tsc -p .",
-    "run-publish": "set -ex ; npm test && cd dist && cp -vf ../package.json . && cp -vf ../package-lock.json . && cp -vf ../LICENSE . && npm publish",
+    "run-publish": "set -ex ; npm test && cd dist && cp -vf ../package.json . && cp -vf ../package-lock.json . && cp -vf ../LICENSE . && cp -vf ../.npmignore . && npm publish",
     "generate-doc": "typedoc"
   },
   "repository": {
