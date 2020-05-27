@@ -1,6 +1,6 @@
 {
   "name": "@patagoniantech/redis-helper",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Redis Helper",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "test:cluster": "npm run build && mocha dist/test/cluster.js",
     "clean": "[ ! -d dist ] || rm -rfv dist",
     "build": "npm run clean && tsc -p .",
-    "publish": "set -ex ; npm test && cd dist && cp -vf ../package.json . && cp -vf ../package-lock.json . && cp -vf ../LICENSE . && npm publish",
+    "run-publish": "set -ex ; npm test && cd dist && cp -vf ../package.json . && cp -vf ../package-lock.json . && cp -vf ../LICENSE . && npm publish",
     "generate-doc": "typedoc"
   },
   "repository": {
