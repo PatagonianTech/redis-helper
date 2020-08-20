@@ -1,11 +1,12 @@
 module.exports = {
-  trailingComma: 'es5',
+  $schema: "http://json.schemastore.org/prettierrc",
+  trailingComma: "es5",
+  arrowParens: "always",
+  endOfLine: "lf",
   tabWidth: 2,
-  semi: false,
+  semi: true,
   singleQuote: true,
-  endOfLine: 'lf',
-  jsxSingleQuote: true,
+  jsxSingleQuote: false,
   printWidth: 80,
-  proseWrap: 'always',
-  arrowParens: 'avoid',
+  proseWrap: "always",
 };

@@ -11,6 +11,11 @@ enum RedisErrorCodes {
    * Unexpected error.
    */
   Unexpected = 2,
+
+  /**
+   * Invalid implementation.
+   */
+  InvalidImplementation = 3,
 }
 
 /**

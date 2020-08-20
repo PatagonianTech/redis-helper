@@ -1,6 +1,6 @@
 import assert from 'assert';
 import RedisHelperConnection from '../..';
-import RedisHelper from '../../redis-helper';
+import RedisHelper from '../../redisHelper';
 
 const wait = (test: any, t: number) => {
   const to = t * 1000;
@@ -89,14 +89,16 @@ export default (connection: RedisHelperConnection) => {
   it('find obj by key', async () => {
     const ba = await redisHelper.find<TObj>({ keyPattern: 'b*' });
     assert.strictEqual(ba.length, 1);
-    assert.deepEqual(ba[0].key, 'test:b');
+    assert.deepEqual(ba[0].key, 'b');
+    assert.deepEqual(ba[0].fullKey, 'test:b');
     assert.deepEqual(ba[0].value, obj);
   });
 
   it('find obj by value', async () => {
     const ba = await redisHelper.find<TObj>({ filter: (k) => k === 'test:b' });
     assert.strictEqual(ba.length, 1);
-    assert.deepEqual(ba[0].key, 'test:b');
+    assert.deepEqual(ba[0].key, 'b');
+    assert.deepEqual(ba[0].fullKey, 'test:b');
     assert.deepEqual(ba[0].value, obj);
   });
 

@@ -1,6 +1,6 @@
 import Redis from 'ioredis';
-import RedisHelper from './redis-helper';
-import { TOnErrorHandler } from './types';
+import RedisHelper from './redisHelper';
+import { TOnErrorHandler, TRedisUnitType } from './types';
 
 /**
  * RedisHelper constructor object.
@@ -30,6 +30,8 @@ export default class RedisHelperConnection {
   private _redisInstance: Redis.Redis | null = null;
   private _config: Redis.RedisOptions | null;
   private _onError: TOnErrorHandler;
+
+  static RedisHelper = RedisHelper;
 
   constructor({
     config = null,
@@ -91,9 +93,14 @@ export default class RedisHelperConnection {
    *
    * @param prefix Prefix
    * @param expire Expire time in seconds
+   * @param redisExpireUnit Default Redis expire unit (Default: EX = seconds)
    */
-  create(prefix: string = '', expire: number = 60 * 60 * 24): RedisHelper {
+  create(
+    prefix: string = '',
+    expire: number = 0,
+    redisExpireUnit: TRedisUnitType = 'EX'
+  ): RedisHelper {
     const instance = this.getInstance();
-    return new RedisHelper(prefix, expire, instance);
+    return new RedisHelper(instance, prefix, expire, redisExpireUnit);
   }
 }
