@@ -71,6 +71,9 @@
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h2>Usage</h2>
 				</a>
+				<a href="#using-redishelperconnection" id="using-redishelperconnection" style="color: inherit; text-decoration: none;">
+					<h3>Using RedisHelperConnection</h3>
+				</a>
 				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> RedisHelperConnection <span class="hljs-keyword">from</span> <span class="hljs-string">'@patagoniantech/redis-helper'</span>;
 
 <span class="hljs-keyword">const</span> REDIS_HOST = process.env.REDIS_HOST || <span class="hljs-string">'127.0.0.1'</span>;
@@ -97,10 +100,40 @@
 
 <span class="hljs-comment">// Close Redis connection</span>
 <span class="hljs-keyword">await</span> connection.close();</code></pre>
+				<a href="#using-io-redis-instance" id="using-io-redis-instance" style="color: inherit; text-decoration: none;">
+					<h3>Using IO Redis instance</h3>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> Redis <span class="hljs-keyword">from</span> <span class="hljs-string">'ioredis'</span>;
+<span class="hljs-keyword">import</span> { RedisHelper } <span class="hljs-keyword">from</span> <span class="hljs-string">'@patagoniantech/redis-helper'</span>;
+
+<span class="hljs-keyword">const</span> REDIS_HOST = process.env.REDIS_HOST || <span class="hljs-string">'127.0.0.1'</span>;
+<span class="hljs-keyword">const</span> REDIS_PORT = <span class="hljs-built_in">Number</span>(process.env.REDIS_PORT) || <span class="hljs-number">6379</span>;
+<span class="hljs-keyword">const</span> REDIS_CACHE_EXPIRE = <span class="hljs-number">5</span>; <span class="hljs-comment">// in seconds</span>
+
+<span class="hljs-keyword">const</span> connection = <span class="hljs-keyword">new</span> Redis({
+  config: {
+    host: REDIS_HOST,
+    port: REDIS_PORT,
+  },
+});
+
+<span class="hljs-keyword">const</span> redisHelper = <span class="hljs-keyword">new</span> RedisHelper(connection, <span class="hljs-string">'testPrefix'</span>, REDIS_CACHE_EXPIRE);
+
+<span class="hljs-keyword">const</span> a = <span class="hljs-keyword">await</span> redisHelper.tryGet(<span class="hljs-string">'a'</span>, <span class="hljs-number">123</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Check if a=123'</span>, a);
+
+<span class="hljs-keyword">const</span> b = <span class="hljs-keyword">await</span> redisHelper.tryGet(<span class="hljs-string">'a'</span>, <span class="hljs-number">321</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Check if b=123'</span>, b);
+
+<span class="hljs-keyword">const</span> d = <span class="hljs-keyword">await</span> redisHelper.del(<span class="hljs-string">'a'</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'deleted records:'</span>, <span class="hljs-number">1</span>);
+
+<span class="hljs-comment">// Close Redis connection</span>
+<span class="hljs-keyword">await</span> connection.close();</code></pre>
 				<a href="#doc" id="doc" style="color: inherit; text-decoration: none;">
 					<h2>Doc</h2>
 				</a>
-				<p>See <a href="https://htmlpreview.github.io/?https://github.com/PatagonianTech/redis-helper/blob/master/docs/index.html">docs/index.html</a>.</p>
+				<p>See <a href="https://htmlpreview.github.io/?https://github.com/PatagonianTech/redis-helper/blob/master/docs/globals.html">docs/index.html</a>.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -110,13 +143,16 @@
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_rediserror_.html">&quot;<wbr>Redis<wbr>Error&quot;</a>
+						<a href="modules/_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_redishelper_.html">&quot;<wbr>Redis<wbr>Helper&quot;</a>
+						<a href="modules/_rediserror_.html">&quot;redis<wbr>Error&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_redishelperconnection_.html">&quot;<wbr>Redis<wbr>Helper<wbr>Connection&quot;</a>
+						<a href="modules/_redishelper_.html">&quot;redis<wbr>Helper&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_redishelperconnection_.html">&quot;redis<wbr>Helper<wbr>Connection&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/_test_cluster_.html">&quot;test/cluster&quot;</a>
@@ -151,6 +187,9 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>

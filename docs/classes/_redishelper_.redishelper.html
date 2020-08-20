@@ -56,7 +56,7 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_redishelper_.html">&quot;RedisHelper&quot;</a>
+					<a href="../modules/_redishelper_.html">&quot;redisHelper&quot;</a>
 				</li>
 				<li>
 					<a href="_redishelper_.redishelper.html">RedisHelper</a>
@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>RedisHelper.</p>
+						<p>Redis Helper.</p>
 					</div>
 				</div>
 			</section>
@@ -99,13 +99,16 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_redishelper_.redishelper.html#_expire" class="tsd-kind-icon">_expire</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_redishelper_.redishelper.html#_prefix" class="tsd-kind-icon">_prefix</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_redishelper_.redishelper.html#_redisexpireunit" class="tsd-kind-icon">_redis<wbr>Expire<wbr>Unit</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_redishelper_.redishelper.html#_redisinstance" class="tsd-kind-icon">_redis<wbr>Instance</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private"><a href="_redishelper_.redishelper.html#_options" class="tsd-kind-icon">_options</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_redishelper_.redishelper.html#clean" class="tsd-kind-icon">clean</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_redishelper_.redishelper.html#cleankey" class="tsd-kind-icon">clean<wbr>Key</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_redishelper_.redishelper.html#del" class="tsd-kind-icon">del</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_redishelper_.redishelper.html#delmany" class="tsd-kind-icon">del<wbr>Many</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_redishelper_.redishelper.html#expire" class="tsd-kind-icon">expire</a></li>
@@ -126,13 +129,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Redis<wbr>Helper<span class="tsd-signature-symbol">(</span>prefix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, expire<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, redisInstance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Redis.Redis</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_redishelper_.redishelper.html" class="tsd-signature-type">RedisHelper</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Redis<wbr>Helper<span class="tsd-signature-symbol">(</span>redisInstance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Redis.Redis</span>, prefix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, expire<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, redisExpireUnit<span class="tsd-signature-symbol">?: </span><a href="../modules/_types_.html#tredisunittype" class="tsd-signature-type">TRedisUnitType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_redishelper_.redishelper.html" class="tsd-signature-type">RedisHelper</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelper.ts#L19">src/RedisHelper.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L20">src/redisHelper.ts:20</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -143,23 +146,36 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
+									<h5>redisInstance: <span class="tsd-signature-type">Redis.Redis</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Redis instance</p>
+										</div>
+									</div>
+								</li>
+								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> prefix: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;&quot;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>Prefix (empty)</p>
+											<p>Prefix (Default: empty)</p>
 										</div>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> expire: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 60 * 60 * 24</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> expire: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>Default expiration time in seconds (1 day)</p>
+											<p>Default expiration time in seconds (Default: 1 day)</p>
 										</div>
 									</div>
 								</li>
 								<li>
-									<h5>redisInstance: <span class="tsd-signature-type">Redis.Redis</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> redisExpireUnit: <a href="../modules/_types_.html#tredisunittype" class="tsd-signature-type">TRedisUnitType</a><span class="tsd-signature-symbol"> = &quot;EX&quot;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Default Redis expire unit (Default: EX = seconds)</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_redishelper_.redishelper.html" class="tsd-signature-type">RedisHelper</a></h4>
@@ -175,7 +191,7 @@
 					<div class="tsd-signature tsd-kind-icon">_expire<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelper.ts#L18">src/RedisHelper.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L18">src/redisHelper.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -185,7 +201,17 @@
 					<div class="tsd-signature tsd-kind-icon">_prefix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelper.ts#L17">src/RedisHelper.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L17">src/redisHelper.ts:17</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_redisexpireunit" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _redis<wbr>Expire<wbr>Unit</h3>
+					<div class="tsd-signature tsd-kind-icon">_redis<wbr>Expire<wbr>Unit<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_.html#tredisunittype" class="tsd-signature-type">TRedisUnitType</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L20">src/redisHelper.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -195,13 +221,45 @@
 					<div class="tsd-signature tsd-kind-icon">_redis<wbr>Instance<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Redis.Redis</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelper.ts#L19">src/RedisHelper.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L19">src/redisHelper.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
+					<a name="_options" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _options</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_options&lt;T&gt;<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">T</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_.iredishelperoptionsinternal.html" class="tsd-signature-type">IRedisHelperOptionsInternal</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_types_.iredishelperoptions.html" class="tsd-signature-type">IRedisHelperOptions</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L63">src/redisHelper.ts:63</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_.iredishelpercoreoptions.html" class="tsd-signature-type">IRedisHelperCoreOptions</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>key: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="" class="tsd-signature-type">T</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_types_.iredishelperoptionsinternal.html" class="tsd-signature-type">IRedisHelperOptionsInternal</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_types_.iredishelperoptions.html" class="tsd-signature-type">IRedisHelperOptions</a></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="clean" class="tsd-anchor"></a>
 					<h3>clean</h3>
@@ -212,7 +270,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelper.ts#L335">src/RedisHelper.ts:335</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L427">src/redisHelper.ts:427</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -226,16 +284,53 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="del" class="tsd-anchor"></a>
-					<h3>del</h3>
+					<a name="cleankey" class="tsd-anchor"></a>
+					<h3>clean<wbr>Key</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">del<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, useKeyPrefix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">clean<wbr>Key<span class="tsd-signature-symbol">(</span>fullKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelper.ts#L155">src/RedisHelper.ts:155</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L91">src/redisHelper.ts:91</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Remove key prefix.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p>get</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>fullKey: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Full key</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>Key without prefix</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="del" class="tsd-anchor"></a>
+					<h3>del</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">del<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_types_.iredishelpercoreoptions.html" class="tsd-signature-type">IRedisHelperCoreOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L217">src/redisHelper.ts:217</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -252,12 +347,14 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> useKeyPrefix: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/_types_.iredishelpercoreoptions.html" class="tsd-signature-type">IRedisHelperCoreOptions</a></h5>
 									<div class="tsd-comment tsd-typography">
+										<p>Redis Helper options</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Redis DEL result</p>
 						</li>
 					</ul>
 				</section>
@@ -265,13 +362,13 @@
 					<a name="delmany" class="tsd-anchor"></a>
 					<h3>del<wbr>Many</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">del<wbr>Many&lt;T&gt;<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>keyPattern<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>useKeyPrefix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>filter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">del<wbr>Many&lt;T&gt;<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>keyPattern<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>filter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_types_.iredishelpercoreoptions.html" class="tsd-signature-type">IRedisHelperCoreOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelper.ts#L289">src/RedisHelper.ts:289</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L370">src/redisHelper.ts:370</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -288,7 +385,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>keyPattern<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>useKeyPrefix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>filter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
+									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>keyPattern<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>filter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter">
 											<h5>key<wbr>Pattern<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
@@ -297,18 +394,15 @@
 											</div>
 										</li>
 										<li class="tsd-parameter">
-											<h5>use<wbr>Key<wbr>Prefix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
-										</li>
-										<li class="tsd-parameter">
 											<h5>filter<span class="tsd-signature-symbol">: </span>function</h5>
 											<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon">filter<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+												<li class="tsd-signature tsd-kind-icon">filter<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">true</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<aside class="tsd-sources">
 														<ul>
-															<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelper.ts#L291">src/RedisHelper.ts:291</a></li>
+															<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L373">src/redisHelper.ts:373</a></li>
 														</ul>
 													</aside>
 													<div class="tsd-comment tsd-typography">
@@ -323,11 +417,17 @@
 															<h5>value: <span class="tsd-signature-type">T</span></h5>
 														</li>
 													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">true</span></h4>
 												</li>
 											</ul>
 										</li>
 									</ul>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/_types_.iredishelpercoreoptions.html" class="tsd-signature-type">IRedisHelperCoreOptions</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Redis Helper options</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -339,13 +439,13 @@
 					<a name="expire" class="tsd-anchor"></a>
 					<h3>expire</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">expire<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, expire<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Redis.BooleanResponse</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">expire<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, expire<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, options<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_.iredishelperoptionsparams.html" class="tsd-signature-type">IRedisHelperOptionsParams</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Redis.BooleanResponse</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelper.ts#L185">src/RedisHelper.ts:185</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L246">src/redisHelper.ts:246</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -372,6 +472,12 @@
 										<p>Expire time in seconds</p>
 									</div>
 								</li>
+								<li>
+									<h5>options: <a href="../interfaces/_types_.iredishelperoptionsparams.html" class="tsd-signature-type">IRedisHelperOptionsParams</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Redis Helper options</p>
+									</div>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Redis.BooleanResponse</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>Redis response</p>
@@ -382,13 +488,13 @@
 					<a name="find" class="tsd-anchor"></a>
 					<h3>find</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">find&lt;T&gt;<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>keyPattern<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>useKeyPrefix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>filter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_types_.html#trediskeyvalue" class="tsd-signature-type">TRedisKeyValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">find&lt;T&gt;<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>keyPattern<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>filter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_types_.iredishelpercoreoptions.html" class="tsd-signature-type">IRedisHelperCoreOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_types_.html#trediskeyvalue" class="tsd-signature-type">TRedisKeyValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelper.ts#L241">src/RedisHelper.ts:241</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L307">src/redisHelper.ts:307</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -410,7 +516,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>keyPattern<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>useKeyPrefix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>filter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
+									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>keyPattern<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>filter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter">
 											<h5>key<wbr>Pattern<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
@@ -419,18 +525,15 @@
 											</div>
 										</li>
 										<li class="tsd-parameter">
-											<h5>use<wbr>Key<wbr>Prefix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
-										</li>
-										<li class="tsd-parameter">
 											<h5>filter<span class="tsd-signature-symbol">: </span>function</h5>
 											<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon">filter<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+												<li class="tsd-signature tsd-kind-icon">filter<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">true</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<aside class="tsd-sources">
 														<ul>
-															<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelper.ts#L243">src/RedisHelper.ts:243</a></li>
+															<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L310">src/redisHelper.ts:310</a></li>
 														</ul>
 													</aside>
 													<div class="tsd-comment tsd-typography">
@@ -445,11 +548,17 @@
 															<h5>value: <span class="tsd-signature-type">T</span></h5>
 														</li>
 													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">true</span></h4>
 												</li>
 											</ul>
 										</li>
 									</ul>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/_types_.iredishelpercoreoptions.html" class="tsd-signature-type">IRedisHelperCoreOptions</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Redis Helper options</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_types_.html#trediskeyvalue" class="tsd-signature-type">TRedisKeyValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -461,13 +570,13 @@
 					<a name="get" class="tsd-anchor"></a>
 					<h3>get</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">get&lt;T&gt;<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, useKeyPrefix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get&lt;T&gt;<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_types_.iredishelpercoreoptions.html" class="tsd-signature-type">IRedisHelperCoreOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelper.ts#L100">src/RedisHelper.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L160">src/redisHelper.ts:160</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -490,10 +599,7 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> useKeyPrefix: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Use RedisHelper prefix?</p>
-									</div>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/_types_.iredishelpercoreoptions.html" class="tsd-signature-type">IRedisHelperCoreOptions</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -505,13 +611,13 @@
 					<a name="incr" class="tsd-anchor"></a>
 					<h3>incr</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">incr<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">incr<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_types_.iredishelperoptionsparams.html" class="tsd-signature-type">IRedisHelperOptionsParams</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelper.ts#L214">src/RedisHelper.ts:214</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L278">src/redisHelper.ts:278</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -528,10 +634,19 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Key</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/_types_.iredishelperoptionsparams.html" class="tsd-signature-type">IRedisHelperOptionsParams</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Redis Helper options</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Current value</p>
+							<p>Current value before update</p>
 						</li>
 					</ul>
 				</section>
@@ -539,24 +654,29 @@
 					<a name="key" class="tsd-anchor"></a>
 					<h3>key</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">key<span class="tsd-signature-symbol">(</span>k<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">key<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelper.ts#L43">src/RedisHelper.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L108">src/redisHelper.ts:108</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Get Redis key.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p>cleanKey</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>k: <span class="tsd-signature-type">string</span></h5>
+									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Base key</p>
 									</div>
@@ -571,13 +691,13 @@
 					<a name="set" class="tsd-anchor"></a>
 					<h3>set</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">set&lt;T&gt;<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">?: </span><a href="../modules/_types_.html#tredishelperoptions" class="tsd-signature-type">TRedisHelperOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">set&lt;T&gt;<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_types_.iredishelperoptionsparams.html" class="tsd-signature-type">IRedisHelperOptionsParams</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelper.ts#L55">src/RedisHelper.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L120">src/redisHelper.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -606,9 +726,9 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../modules/_types_.html#tredishelperoptions" class="tsd-signature-type">TRedisHelperOptions</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/_types_.iredishelperoptionsparams.html" class="tsd-signature-type">IRedisHelperOptionsParams</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Redis options</p>
+										<p>Redis Helper options</p>
 									</div>
 								</li>
 							</ul>
@@ -621,13 +741,13 @@
 					<a name="tryget" class="tsd-anchor"></a>
 					<h3>try<wbr>Get</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">try<wbr>Get&lt;T&gt;<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">?: </span><a href="../modules/_types_.html#tredishelperoptions" class="tsd-signature-type">TRedisHelperOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">try<wbr>Get&lt;T&gt;<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_types_.iredishelperoptionsparams.html" class="tsd-signature-type">IRedisHelperOptionsParams</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/RedisHelper.ts#L135">src/RedisHelper.ts:135</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelper.ts#L196">src/redisHelper.ts:196</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -656,9 +776,9 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../modules/_types_.html#tredishelperoptions" class="tsd-signature-type">TRedisHelperOptions</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/_types_.iredishelperoptionsparams.html" class="tsd-signature-type">IRedisHelperOptionsParams</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Redis options</p>
+										<p>Redis Helper options</p>
 									</div>
 								</li>
 							</ul>
@@ -676,13 +796,16 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_rediserror_.html">&quot;<wbr>Redis<wbr>Error&quot;</a>
-					</li>
-					<li class="current tsd-kind-module">
-						<a href="../modules/_redishelper_.html">&quot;<wbr>Redis<wbr>Helper&quot;</a>
+						<a href="../modules/_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_redishelperconnection_.html">&quot;<wbr>Redis<wbr>Helper<wbr>Connection&quot;</a>
+						<a href="../modules/_rediserror_.html">&quot;redis<wbr>Error&quot;</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/_redishelper_.html">&quot;redis<wbr>Helper&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_redishelperconnection_.html">&quot;redis<wbr>Helper<wbr>Connection&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_test_cluster_.html">&quot;test/cluster&quot;</a>
@@ -715,10 +838,19 @@
 								<a href="_redishelper_.redishelper.html#_prefix" class="tsd-kind-icon">_prefix</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_redishelper_.redishelper.html#_redisexpireunit" class="tsd-kind-icon">_redis<wbr>Expire<wbr>Unit</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_redishelper_.redishelper.html#_redisinstance" class="tsd-kind-icon">_redis<wbr>Instance</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
+								<a href="_redishelper_.redishelper.html#_options" class="tsd-kind-icon">_options</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_redishelper_.redishelper.html#clean" class="tsd-kind-icon">clean</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_redishelper_.redishelper.html#cleankey" class="tsd-kind-icon">clean<wbr>Key</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_redishelper_.redishelper.html#del" class="tsd-kind-icon">del</a>
@@ -751,9 +883,6 @@
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_redishelper_.html#redis_expire_unit" class="tsd-kind-icon">REDIS_<wbr>EXPIRE_<wbr>UNIT</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
@@ -776,6 +905,9 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>

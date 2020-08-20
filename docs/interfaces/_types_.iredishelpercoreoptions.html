@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RedisErrorCodes | @patagoniantech/redis-helper</title>
+	<title>IRedisHelperCoreOptions | @patagoniantech/redis-helper</title>
 	<meta name="description" content="Documentation for @patagoniantech/redis-helper">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_rediserror_.html">&quot;redisError&quot;</a>
+					<a href="../modules/_types_.html">&quot;types&quot;</a>
 				</li>
 				<li>
-					<a href="_rediserror_.rediserrorcodes.html">RedisErrorCodes</a>
+					<a href="_types_.iredishelpercoreoptions.html">IRedisHelperCoreOptions</a>
 				</li>
 			</ul>
-			<h1>Enumeration RedisErrorCodes</h1>
+			<h1>Interface IRedisHelperCoreOptions</h1>
 		</div>
 	</div>
 </header>
@@ -72,69 +72,50 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>RedisHelper error codes.</p>
+						<p>RedisHelper Core Options.</p>
 					</div>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">IRedisHelperCoreOptions</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="_types_.iredishelperoptionsparams.html" class="tsd-signature-type">IRedisHelperOptionsParams</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-not-exported">
-							<h3>Enumeration members</h3>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported"><a href="_rediserror_.rediserrorcodes.html#invalidimplementation" class="tsd-kind-icon">Invalid<wbr>Implementation</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported"><a href="_rediserror_.rediserrorcodes.html#redis" class="tsd-kind-icon">Redis</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported"><a href="_rediserror_.rediserrorcodes.html#unexpected" class="tsd-kind-icon">Unexpected</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_types_.iredishelpercoreoptions.html#usekeyprefix" class="tsd-kind-icon">use<wbr>Key<wbr>Prefix</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported">
-					<a name="invalidimplementation" class="tsd-anchor"></a>
-					<h3>Invalid<wbr>Implementation</h3>
-					<div class="tsd-signature tsd-kind-icon">Invalid<wbr>Implementation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 3</span></div>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="usekeyprefix" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> use<wbr>Key<wbr>Prefix</h3>
+					<div class="tsd-signature tsd-kind-icon">use<wbr>Key<wbr>Prefix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisError.ts#L18">src/redisError.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/types.ts#L22">src/types.ts:22</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Invalid implementation.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported">
-					<a name="redis" class="tsd-anchor"></a>
-					<h3>Redis</h3>
-					<div class="tsd-signature tsd-kind-icon">Redis<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisError.ts#L8">src/redisError.ts:8</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Expected Redis error.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported">
-					<a name="unexpected" class="tsd-anchor"></a>
-					<h3>Unexpected</h3>
-					<div class="tsd-signature tsd-kind-icon">Unexpected<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 2</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisError.ts#L13">src/redisError.ts:13</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Unexpected error.</p>
+							<p>Add key prefix?</p>
 						</div>
 					</div>
 				</section>
@@ -149,7 +130,7 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/_index_.html">&quot;index&quot;</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_rediserror_.html">&quot;redis<wbr>Error&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -167,7 +148,7 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/_test_src_tests_.html">&quot;test/src/tests&quot;</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="../modules/_types_.html">&quot;types&quot;</a>
 					</li>
 				</ul>
@@ -176,24 +157,36 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-enum tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_rediserror_.rediserrorcodes.html" class="tsd-kind-icon">Redis<wbr>Error<wbr>Codes</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
+						<a href="_types_.iredishelpercoreoptions.html" class="tsd-kind-icon">IRedis<wbr>Helper<wbr>Core<wbr>Options</a>
 						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported">
-								<a href="_rediserror_.rediserrorcodes.html#invalidimplementation" class="tsd-kind-icon">Invalid<wbr>Implementation</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported">
-								<a href="_rediserror_.rediserrorcodes.html#redis" class="tsd-kind-icon">Redis</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported">
-								<a href="_rediserror_.rediserrorcodes.html#unexpected" class="tsd-kind-icon">Unexpected</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_types_.iredishelpercoreoptions.html#usekeyprefix" class="tsd-kind-icon">use<wbr>Key<wbr>Prefix</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/_rediserror_.rediserror.html" class="tsd-kind-icon">Redis<wbr>Error</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_types_.iredishelperoptions.html" class="tsd-kind-icon">IRedis<wbr>Helper<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_types_.iredishelperoptionsinternal.html" class="tsd-kind-icon">IRedis<wbr>Helper<wbr>Options<wbr>Internal</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_types_.iredishelperoptionsparams.html" class="tsd-kind-icon">IRedis<wbr>Helper<wbr>Options<wbr>Params</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_types_.html#tonerrorhandler" class="tsd-kind-icon">TOn<wbr>Error<wbr>Handler</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../modules/_types_.html#tredisfilterparams" class="tsd-kind-icon">TRedis<wbr>Filter<wbr>Params</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../modules/_types_.html#trediskeyvalue" class="tsd-kind-icon">TRedis<wbr>Key<wbr>Value</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_types_.html#tredisunittype" class="tsd-kind-icon">TRedis<wbr>Unit<wbr>Type</a>
 					</li>
 				</ul>
 			</nav>
@@ -211,10 +204,11 @@
 				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>

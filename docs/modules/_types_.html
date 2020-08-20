@@ -71,11 +71,21 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_types_.iredishelpercoreoptions.html" class="tsd-kind-icon">IRedis<wbr>Helper<wbr>Core<wbr>Options</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_types_.iredishelperoptions.html" class="tsd-kind-icon">IRedis<wbr>Helper<wbr>Options</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_types_.iredishelperoptionsinternal.html" class="tsd-kind-icon">IRedis<wbr>Helper<wbr>Options<wbr>Internal</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_types_.iredishelperoptionsparams.html" class="tsd-kind-icon">IRedis<wbr>Helper<wbr>Options<wbr>Params</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_types_.html#tonerrorhandler" class="tsd-kind-icon">TOn<wbr>Error<wbr>Handler</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_types_.html#tredishelperoptions" class="tsd-kind-icon">TRedis<wbr>Helper<wbr>Options</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="_types_.html#tredisfilterparams" class="tsd-kind-icon">TRedis<wbr>Filter<wbr>Params</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="_types_.html#trediskeyvalue" class="tsd-kind-icon">TRedis<wbr>Key<wbr>Value</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_types_.html#tredisunittype" class="tsd-kind-icon">TRedis<wbr>Unit<wbr>Type</a></li>
 							</ul>
 						</section>
 					</div>
@@ -86,10 +96,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="tonerrorhandler" class="tsd-anchor"></a>
 					<h3>TOn<wbr>Error<wbr>Handler</h3>
-					<div class="tsd-signature tsd-kind-icon">TOn<wbr>Error<wbr>Handler<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+					<div class="tsd-signature tsd-kind-icon">TOn<wbr>Error<wbr>Handler<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><a href="../classes/_rediserror_.rediserror.html#error" class="tsd-signature-type">Error</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/types.ts#L6">src/types.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/types.ts#L13">src/types.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -102,14 +112,14 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-signature">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><a href="../classes/_rediserror_.rediserror.html#error" class="tsd-signature-type">Error</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5>err: <span class="tsd-signature-type">any</span></h5>
+												<h5>err: <a href="../classes/_rediserror_.rediserror.html#error" class="tsd-signature-type">Error</a></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -119,28 +129,40 @@
 						</ul>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
-					<a name="tredishelperoptions" class="tsd-anchor"></a>
-					<h3>TRedis<wbr>Helper<wbr>Options</h3>
-					<div class="tsd-signature tsd-kind-icon">TRedis<wbr>Helper<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Redis.RedisOptions</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>expire<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="tredisfilterparams" class="tsd-anchor"></a>
+					<h3>TRedis<wbr>Filter<wbr>Params</h3>
+					<div class="tsd-signature tsd-kind-icon">TRedis<wbr>Filter<wbr>Params&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>filter<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">; </span>keyPattern<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/types.ts#L11">src/types.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/types.ts#L57">src/types.ts:57</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>RedisHelper options.</p>
-						</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T</h4>
+						</li>
+					</ul>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> filter<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> key<wbr>Pattern<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+						</ul>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="trediskeyvalue" class="tsd-anchor"></a>
 					<h3>TRedis<wbr>Key<wbr>Value</h3>
-					<div class="tsd-signature tsd-kind-icon">TRedis<wbr>Key<wbr>Value&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> }</span></div>
+					<div class="tsd-signature tsd-kind-icon">TRedis<wbr>Key<wbr>Value&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>fullKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/fce38c2/src/types.ts#L16">src/types.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/types.ts#L51">src/types.ts:51</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -158,12 +180,34 @@
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter">
+								<h5>full<wbr>Key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li class="tsd-parameter">
 								<h5>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
 							</li>
 							<li class="tsd-parameter">
 								<h5>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></h5>
 							</li>
 						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
+					<a name="tredisunittype" class="tsd-anchor"></a>
+					<h3>TRedis<wbr>Unit<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">TRedis<wbr>Unit<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"EX"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PX"</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/types.ts#L8">src/types.ts:8</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Default Redis expire unit (Default: EX = seconds)</p>
+							<ul>
+								<li>EX = seconds: Set the specified expire time, in seconds.</li>
+								<li>PX = milliseconds: Set the specified expire time, in milliseconds.</li>
+							</ul>
+						</div>
 					</div>
 				</section>
 			</section>
@@ -175,13 +219,16 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_rediserror_.html">&quot;<wbr>Redis<wbr>Error&quot;</a>
+						<a href="_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_redishelper_.html">&quot;<wbr>Redis<wbr>Helper&quot;</a>
+						<a href="_rediserror_.html">&quot;redis<wbr>Error&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_redishelperconnection_.html">&quot;<wbr>Redis<wbr>Helper<wbr>Connection&quot;</a>
+						<a href="_redishelper_.html">&quot;redis<wbr>Helper&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_redishelperconnection_.html">&quot;redis<wbr>Helper<wbr>Connection&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_test_cluster_.html">&quot;test/cluster&quot;</a>
@@ -199,14 +246,29 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_types_.iredishelpercoreoptions.html" class="tsd-kind-icon">IRedis<wbr>Helper<wbr>Core<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_types_.iredishelperoptions.html" class="tsd-kind-icon">IRedis<wbr>Helper<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_types_.iredishelperoptionsinternal.html" class="tsd-kind-icon">IRedis<wbr>Helper<wbr>Options<wbr>Internal</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_types_.iredishelperoptionsparams.html" class="tsd-kind-icon">IRedis<wbr>Helper<wbr>Options<wbr>Params</a>
+					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="_types_.html#tonerrorhandler" class="tsd-kind-icon">TOn<wbr>Error<wbr>Handler</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="_types_.html#tredishelperoptions" class="tsd-kind-icon">TRedis<wbr>Helper<wbr>Options</a>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="_types_.html#tredisfilterparams" class="tsd-kind-icon">TRedis<wbr>Filter<wbr>Params</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_types_.html#trediskeyvalue" class="tsd-kind-icon">TRedis<wbr>Key<wbr>Value</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="_types_.html#tredisunittype" class="tsd-kind-icon">TRedis<wbr>Unit<wbr>Type</a>
 					</li>
 				</ul>
 			</nav>
@@ -225,6 +287,9 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
