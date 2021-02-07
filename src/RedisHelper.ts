@@ -1,19 +1,23 @@
 import Redis from 'ioredis';
+import { RedisError } from './utils/RedisError';
 import {
-  IRedisHelperOptions,
-  IRedisHelperOptionsParams,
-  IRedisHelperOptionsInternal,
-  TRedisKeyValue,
+  IRedisHelper,
   IRedisHelperCoreOptions,
+  IRedisHelperOptions,
+  IRedisHelperOptionsInternal,
+  IRedisHelperOptionsParams,
   TRedisFilterParams,
+  TRedisHelperValue,
+  TRedisKeyValue,
+  TRedisSearchValue,
   TRedisUnitType,
 } from './types';
-import { RedisError } from './redisError';
+import { resolveValue } from './utils';
 
 /**
  * Redis Helper.
  */
-export default class RedisHelper {
+export class RedisHelper<B = unknown> implements IRedisHelper<B> {
   private _prefix: string;
   private _expire: number;
   private _redisInstance: Redis.Redis;
@@ -117,32 +121,49 @@ export default class RedisHelper {
    * @param options Redis Helper options
    * @return Value
    */
-  set<T = any>(
+  set<T = B>(
     key: string,
-    value: T,
+    value: TRedisHelperValue<T>,
     options?: IRedisHelperOptionsParams
   ): Promise<T> {
     return new Promise((resolve, reject) => {
+      let redisValue: T;
+      let redisValueStr: string;
       const o = this._options(key, options);
 
-      try {
+      const resultHandler = (error: any) => {
+        if (error) {
+          console.error(
+            'RedisHelper.set error',
+            key,
+            redisValue,
+            redisValueStr,
+            value,
+            error
+          );
+          reject(new RedisError(RedisError.Codes.Redis, error));
+        } else {
+          resolve(redisValue);
+        }
+      };
+
+      const valueHandler = (v: T) => {
+        redisValue = v; // To return/resolve...
+
         // Parse any type of data to string to will save in Redis
-        let v = JSON.stringify(value);
+        redisValueStr = JSON.stringify(redisValue);
 
         this._redisInstance.set(
           o._key,
-          v,
+          redisValueStr,
           this._redisExpireUnit,
           o.expire,
-          (error) => {
-            if (error) {
-              console.error('RedisHelper.set error', o._key, v, value, error);
-              reject(new RedisError(RedisError.Codes.Redis, error));
-            } else {
-              resolve(value);
-            }
-          }
+          resultHandler
         );
+      };
+
+      try {
+        resolveValue<T>(value).then(valueHandler).catch(resultHandler);
       } catch (error) {
         console.error('.set general error', o._key, error);
         reject(new RedisError(RedisError.Codes.Unexpected, error));
@@ -157,7 +178,7 @@ export default class RedisHelper {
    * @param useKeyPrefix Use RedisHelper prefix?
    * @return Value
    */
-  get<T = any>(
+  get<T = B>(
     key: string,
     options?: IRedisHelperCoreOptions
   ): Promise<T | null> {
@@ -193,9 +214,9 @@ export default class RedisHelper {
    * @param options Redis Helper options
    * @return Value
    */
-  async tryGet<T = any>(
+  async tryGet<T = B>(
     key: string,
-    value: T,
+    value: TRedisHelperValue<T>,
     options?: IRedisHelperOptionsParams
   ): Promise<T> {
     let v = await this.get<T>(key, options);
@@ -237,16 +258,16 @@ export default class RedisHelper {
   /**
    * Set record expiration time.
    *
-   * @param key Key
-   * @param expire Expire time in seconds
-   * @param options Redis Helper options
-   * @return Redis response
+   * @param key Key.
+   * @param expire Expire time in seconds.
+   * @param options Redis Helper options.
+   * @return Redis response.
    * @see https://redis.io/commands/expire
    */
   expire(
     key: string,
     expire: number,
-    options: IRedisHelperOptionsParams
+    options?: IRedisHelperOptionsParams
   ): Promise<Redis.BooleanResponse> {
     return new Promise((resolve, reject) => {
       const o = this._options(key, options);
@@ -296,6 +317,79 @@ export default class RedisHelper {
   }
 
   /**
+   * Find in all Redis DB by value.
+   *
+   * @param searchPattern Search pattern.
+   * @return Results.
+   * @see https://stackoverflow.com/a/38247686/717267
+   */
+  search<T = B>(
+    searchPattern: RegExp,
+    options?: IRedisHelperCoreOptions
+  ): Promise<{
+    length: number;
+    results: Map<string, TRedisSearchValue<T>>;
+  }> {
+    const o = this._options('', options);
+
+    return new Promise((resolve, reject) => {
+      try {
+        const results = new Map<string, TRedisSearchValue<T>>();
+        let length = 0;
+        let cursor = '0';
+
+        const scan = (callback: Function) => {
+          this._redisInstance.scan(
+            cursor,
+            'MATCH',
+            searchPattern.source,
+            (err, reply) => {
+              if (err) {
+                throw err;
+              } else {
+                cursor = reply[0];
+                if (cursor === '0') {
+                  return callback();
+                } else {
+                  reply[1].forEach((key) => {
+                    if (!o.useKeyPrefix || key.startsWith(this._prefix)) {
+                      length++;
+
+                      results.set(
+                        key,
+                        async (newValue?: T): Promise<T | null> => {
+                          if (newValue === undefined) {
+                            return await this.get<T>(key, {
+                              ...o,
+                              useKeyPrefix: false,
+                            });
+                          }
+
+                          return await this.set<T>(key, newValue, {
+                            ...o,
+                            useKeyPrefix: false,
+                          });
+                        }
+                      );
+                    }
+                  });
+
+                  return scan(callback);
+                }
+              }
+            }
+          );
+        };
+
+        scan(() => resolve({ length, results }));
+      } catch (err) {
+        console.error('.findByValue error', err);
+        return reject(err);
+      }
+    });
+  }
+
+  /**
    * Get redis records by key pattern and/or value pattern.
    *
    * @param keyPattern Key pattern (Wildcard)
@@ -304,7 +398,7 @@ export default class RedisHelper {
    * @return Results
    * @see http://athlan.pl/redis-delete-keys-prefix-nodejs
    */
-  find<T = any>(
+  find<T = B>(
     {
       keyPattern = '*',
       filter = (key: string, value: T) => true,
@@ -367,7 +461,7 @@ export default class RedisHelper {
    * @param options Redis Helper options
    * @return Delete count
    */
-  delMany<T = any>(
+  delMany<T = B>(
     {
       keyPattern = '*',
       filter = (key: string, value: T) => true,
@@ -422,9 +516,17 @@ export default class RedisHelper {
   /**
    * Delete all RedisHelper instance Redis records.
    *
+   * WARNING! It will fail if no prefix set and
+   * try to delete everything.
+   *
    * @return Delete count
    */
-  async clean() {
-    return await this.delMany({ keyPattern: '*' });
+  async clear(): Promise<number> {
+    if (!this._prefix) {
+      // Prevent clear Redis data
+      throw new Error('Rejected operation: Clear Redis DB');
+    }
+
+    return await this.delMany({ keyPattern: '*' }, { useKeyPrefix: true });
   }
 }

@@ -8,6 +8,24 @@
     "slaveof",
     "typedoc"
   ],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.history": true
+  },
+  "node_require.exclude": [
+    "node_modules",
+    "typings",
+    "dist",
+    "bin",
+    "build",
+    "tmp",
+    "doc",
+    ".history"
+  ],
   "code-runner.runInTerminal": true,
   "code-runner.showExecutionMessage": false,
   "code-runner.clearPreviousOutput": true,

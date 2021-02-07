@@ -1,4 +1,4 @@
-import RedisHelperConnection from '..';
+import { RedisHelperConnectionHandler } from '..';
 import tests from './src/tests';
 
 const REDIS_HOST = process.env.REDIS_HOST || 'redis-cluster';
@@ -6,7 +6,7 @@ const REDIS_PORT = Number(process.env.REDIS_PORT) || 26379;
 const REDIS_MASTER = process.env.REDIS_MASTER || 'mymaster';
 
 describe('Redis Cluster', () => {
-  const connection = new RedisHelperConnection({
+  const connection = new RedisHelperConnectionHandler({
     config: {
       sentinels: [
         {

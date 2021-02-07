@@ -1,32 +1,15 @@
 import Redis from 'ioredis';
-import RedisHelper from './redisHelper';
-import { TOnErrorHandler, TRedisUnitType } from './types';
+import { RedisHelper } from './RedisHelper';
+import {
+  TOnErrorHandler,
+  TRedisUnitType,
+  TRedisHelperConstructorParams,
+} from './types';
 
 /**
- * RedisHelper constructor object.
+ * Redis connection handler.
  */
-export type TRedisHelperConstructor = {
-  /**
-   * Redis configuration to connect using `ioredis`.
-   *
-   * If used, `redisInstance` is not required.
-   */
-  config?: Redis.RedisOptions | null;
-
-  /**
-   * Custom Redis instance.
-   *
-   * If used, `config` is not required.
-   */
-  redisInstance?: Redis.Redis | null;
-
-  /**
-   * On error handler.
-   */
-  onError?: TOnErrorHandler;
-};
-
-export default class RedisHelperConnection {
+export class RedisHelperConnectionHandler {
   private _redisInstance: Redis.Redis | null = null;
   private _config: Redis.RedisOptions | null;
   private _onError: TOnErrorHandler;
@@ -39,7 +22,7 @@ export default class RedisHelperConnection {
     onError = (err) => {
       console.error('Redis unexpected error!', err);
     },
-  }: TRedisHelperConstructor) {
+  }: TRedisHelperConstructorParams) {
     if (redisInstance) {
       this._redisInstance = redisInstance;
     }

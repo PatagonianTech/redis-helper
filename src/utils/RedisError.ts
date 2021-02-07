@@ -1,22 +1,4 @@
-/**
- * RedisHelper error codes.
- */
-enum RedisErrorCodes {
-  /**
-   * Expected Redis error.
-   */
-  Redis = 1,
-
-  /**
-   * Unexpected error.
-   */
-  Unexpected = 2,
-
-  /**
-   * Invalid implementation.
-   */
-  InvalidImplementation = 3,
-}
+import { RedisErrorCodes } from '../types';
 
 /**
  * RedisHelper error.
