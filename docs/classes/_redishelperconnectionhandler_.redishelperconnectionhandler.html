@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RedisHelperConnection | @patagoniantech/redis-helper</title>
+	<title>RedisHelperConnectionHandler | @patagoniantech/redis-helper</title>
 	<meta name="description" content="Documentation for @patagoniantech/redis-helper">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,24 +56,31 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_redishelperconnection_.html">&quot;redisHelperConnection&quot;</a>
+					<a href="../modules/_redishelperconnectionhandler_.html">&quot;RedisHelperConnectionHandler&quot;</a>
 				</li>
 				<li>
-					<a href="_redishelperconnection_.redishelperconnection.html">RedisHelperConnection</a>
+					<a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html">RedisHelperConnectionHandler</a>
 				</li>
 			</ul>
-			<h1>Class RedisHelperConnection</h1>
+			<h1>Class RedisHelperConnectionHandler</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Redis connection handler.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">RedisHelperConnection</span>
+						<span class="target">RedisHelperConnectionHandler</span>
 					</li>
 				</ul>
 			</section>
@@ -84,24 +91,24 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_redishelperconnection_.redishelperconnection.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_redishelperconnection_.redishelperconnection.html#_config" class="tsd-kind-icon">_config</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_redishelperconnection_.redishelperconnection.html#_onerror" class="tsd-kind-icon">_on<wbr>Error</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_redishelperconnection_.redishelperconnection.html#_redisinstance" class="tsd-kind-icon">_redis<wbr>Instance</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_redishelperconnection_.redishelperconnection.html#redishelper" class="tsd-kind-icon">Redis<wbr>Helper</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html#_config" class="tsd-kind-icon">_config</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html#_onerror" class="tsd-kind-icon">_on<wbr>Error</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html#_redisinstance" class="tsd-kind-icon">_redis<wbr>Instance</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html#redishelper" class="tsd-kind-icon">Redis<wbr>Helper</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_redishelperconnection_.redishelperconnection.html#close" class="tsd-kind-icon">close</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_redishelperconnection_.redishelperconnection.html#create" class="tsd-kind-icon">create</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_redishelperconnection_.redishelperconnection.html#getinstance" class="tsd-kind-icon">get<wbr>Instance</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html#close" class="tsd-kind-icon">close</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html#create" class="tsd-kind-icon">create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html#getinstance" class="tsd-kind-icon">get<wbr>Instance</a></li>
 							</ul>
 						</section>
 					</div>
@@ -113,13 +120,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Redis<wbr>Helper<wbr>Connection<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">RedisOptions</span><span class="tsd-signature-symbol">; </span>redisInstance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Redis</span><span class="tsd-signature-symbol">; </span>onError<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_redishelperconnection_.redishelperconnection.html" class="tsd-signature-type">RedisHelperConnection</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Redis<wbr>Helper<wbr>Connection<wbr>Handler<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">RedisOptions</span><span class="tsd-signature-symbol">; </span>redisInstance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Redis</span><span class="tsd-signature-symbol">; </span>onError<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html" class="tsd-signature-type">RedisHelperConnectionHandler</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelperConnection.ts#L34">src/redisHelperConnection.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/0a9c8da/src/RedisHelperConnectionHandler.ts#L17">src/RedisHelperConnectionHandler.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -136,19 +143,19 @@
 										<li class="tsd-parameter">
 											<h5>on<wbr>Error<span class="tsd-signature-symbol">: </span>function</h5>
 											<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon">on<wbr>Error<span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><a href="_rediserror_.rediserror.html#error" class="tsd-signature-type">Error</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon">on<wbr>Error<span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><a href="_utils_rediserror_.rediserror.html#error" class="tsd-signature-type">Error</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<aside class="tsd-sources">
 														<ul>
-															<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelperConnection.ts#L39">src/redisHelperConnection.ts:39</a></li>
+															<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/0a9c8da/src/RedisHelperConnectionHandler.ts#L22">src/RedisHelperConnectionHandler.ts:22</a></li>
 														</ul>
 													</aside>
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>err: <a href="_rediserror_.rediserror.html#error" class="tsd-signature-type">Error</a></h5>
+															<h5>err: <a href="_utils_rediserror_.rediserror.html#error" class="tsd-signature-type">Error</a></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -158,7 +165,7 @@
 									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_redishelperconnection_.redishelperconnection.html" class="tsd-signature-type">RedisHelperConnection</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html" class="tsd-signature-type">RedisHelperConnectionHandler</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -171,17 +178,17 @@
 					<div class="tsd-signature tsd-kind-icon">_config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Redis.RedisOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelperConnection.ts#L31">src/redisHelperConnection.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/0a9c8da/src/RedisHelperConnectionHandler.ts#L14">src/RedisHelperConnectionHandler.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_onerror" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _on<wbr>Error</h3>
-					<div class="tsd-signature tsd-kind-icon">_on<wbr>Error<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_.html#tonerrorhandler" class="tsd-signature-type">TOnErrorHandler</a></div>
+					<div class="tsd-signature tsd-kind-icon">_on<wbr>Error<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_tonerrorhandler_.html#tonerrorhandler" class="tsd-signature-type">TOnErrorHandler</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelperConnection.ts#L32">src/redisHelperConnection.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/0a9c8da/src/RedisHelperConnectionHandler.ts#L15">src/RedisHelperConnectionHandler.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -191,7 +198,7 @@
 					<div class="tsd-signature tsd-kind-icon">_redis<wbr>Instance<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Redis.Redis</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> = null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelperConnection.ts#L30">src/redisHelperConnection.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/0a9c8da/src/RedisHelperConnectionHandler.ts#L13">src/RedisHelperConnectionHandler.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -201,7 +208,7 @@
 					<div class="tsd-signature tsd-kind-icon">Redis<wbr>Helper<span class="tsd-signature-symbol">:</span> <a href="_redishelper_.redishelper.html" class="tsd-signature-type">RedisHelper</a><span class="tsd-signature-symbol"> = RedisHelper</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelperConnection.ts#L34">src/redisHelperConnection.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/0a9c8da/src/RedisHelperConnectionHandler.ts#L17">src/RedisHelperConnectionHandler.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -218,7 +225,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelperConnection.ts#L69">src/redisHelperConnection.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/0a9c8da/src/RedisHelperConnectionHandler.ts#L52">src/RedisHelperConnectionHandler.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -234,13 +241,13 @@
 					<a name="create" class="tsd-anchor"></a>
 					<h3>create</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span>prefix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, expire<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, redisExpireUnit<span class="tsd-signature-symbol">?: </span><a href="../modules/_types_.html#tredisunittype" class="tsd-signature-type">TRedisUnitType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_redishelper_.redishelper.html" class="tsd-signature-type">RedisHelper</a></li>
+						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span>prefix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, expire<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, redisExpireUnit<span class="tsd-signature-symbol">?: </span><a href="../modules/_types_tredisunittype_.html#tredisunittype" class="tsd-signature-type">TRedisUnitType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_redishelper_.redishelper.html" class="tsd-signature-type">RedisHelper</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelperConnection.ts#L98">src/redisHelperConnection.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/0a9c8da/src/RedisHelperConnectionHandler.ts#L81">src/RedisHelperConnectionHandler.ts:81</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -263,7 +270,7 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> redisExpireUnit: <a href="../modules/_types_.html#tredisunittype" class="tsd-signature-type">TRedisUnitType</a><span class="tsd-signature-symbol"> = &quot;EX&quot;</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> redisExpireUnit: <a href="../modules/_types_tredisunittype_.html#tredisunittype" class="tsd-signature-type">TRedisUnitType</a><span class="tsd-signature-symbol"> = &quot;EX&quot;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Default Redis expire unit (Default: EX = seconds)</p>
 									</div>
@@ -283,7 +290,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/601ce9a/src/redisHelperConnection.ts#L53">src/redisHelperConnection.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/PatagonianTech/redis-helper/blob/0a9c8da/src/RedisHelperConnectionHandler.ts#L36">src/RedisHelperConnectionHandler.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -303,29 +310,8 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_index_.html">&quot;index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_rediserror_.html">&quot;redis<wbr>Error&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_redishelper_.html">&quot;redis<wbr>Helper&quot;</a>
-					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/_redishelperconnection_.html">&quot;redis<wbr>Helper<wbr>Connection&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_test_cluster_.html">&quot;test/cluster&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_test_single_.html">&quot;test/single&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_test_src_tests_.html">&quot;test/src/tests&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_types_.html">&quot;types&quot;</a>
+						<a href="../modules/_redishelperconnectionhandler_.html">&quot;<wbr>Redis<wbr>Helper<wbr>Connection<wbr>Handler&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -334,39 +320,36 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="_redishelperconnection_.redishelperconnection.html" class="tsd-kind-icon">Redis<wbr>Helper<wbr>Connection</a>
+						<a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html" class="tsd-kind-icon">Redis<wbr>Helper<wbr>Connection<wbr>Handler</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="_redishelperconnection_.redishelperconnection.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_redishelperconnection_.redishelperconnection.html#_config" class="tsd-kind-icon">_config</a>
+								<a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html#_config" class="tsd-kind-icon">_config</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_redishelperconnection_.redishelperconnection.html#_onerror" class="tsd-kind-icon">_on<wbr>Error</a>
+								<a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html#_onerror" class="tsd-kind-icon">_on<wbr>Error</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_redishelperconnection_.redishelperconnection.html#_redisinstance" class="tsd-kind-icon">_redis<wbr>Instance</a>
+								<a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html#_redisinstance" class="tsd-kind-icon">_redis<wbr>Instance</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-								<a href="_redishelperconnection_.redishelperconnection.html#redishelper" class="tsd-kind-icon">Redis<wbr>Helper</a>
+								<a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html#redishelper" class="tsd-kind-icon">Redis<wbr>Helper</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_redishelperconnection_.redishelperconnection.html#close" class="tsd-kind-icon">close</a>
+								<a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html#close" class="tsd-kind-icon">close</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_redishelperconnection_.redishelperconnection.html#create" class="tsd-kind-icon">create</a>
+								<a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html#create" class="tsd-kind-icon">create</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_redishelperconnection_.redishelperconnection.html#getinstance" class="tsd-kind-icon">get<wbr>Instance</a>
+								<a href="_redishelperconnectionhandler_.redishelperconnectionhandler.html#getinstance" class="tsd-kind-icon">get<wbr>Instance</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/_redishelperconnection_.html#tredishelperconstructor" class="tsd-kind-icon">TRedis<wbr>Helper<wbr>Constructor</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
@@ -379,19 +362,22 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
